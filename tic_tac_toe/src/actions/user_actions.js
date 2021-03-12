@@ -1,0 +1,5 @@
+export const SET_IS_VALID_EMAIL = "SET_IS_VALID_EMAIL";
+export const SET_TOKEN_LOADING = "SET_TOKEN_LOADING";
+export const SET_IS_VALID_USER = "SET_IS_VALID_USER";
+export const GET_TOKEN_ERROR = "GET_TOKEN_ERROR";
+export const SET_EMAIL = "SET_EMAIL";

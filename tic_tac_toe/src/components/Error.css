@@ -1,0 +1,8 @@
+.error-container {
+  padding: 5rem 0;
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  text-align: center;
+  text-transform: capitalize;
+}

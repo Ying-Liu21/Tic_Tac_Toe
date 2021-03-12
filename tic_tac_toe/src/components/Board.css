@@ -1,0 +1,24 @@
+.board-container {
+  width: 50%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  background-color: #e9eff0;
+  padding: 10px;
+}
+
+/*
+.board-container-1 {
+  width: 70%;
+  height: 70%;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  background-color: #e9eff0;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.board-row:hover {
+  background-color: #ffa;
+}
+*/

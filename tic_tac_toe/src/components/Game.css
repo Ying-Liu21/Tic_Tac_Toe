@@ -1,0 +1,9 @@
+.game {
+  display: flex;
+  position: absolute;
+  max-width: 750px;
+  width: 100%;
+  min-width: 500px;
+  justify-content: center;
+  align-items: center;
+}

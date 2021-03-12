@@ -1,0 +1,55 @@
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(178, 239, 247, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.game-header {
+  display: flex;
+  position: absolute;
+  top: 20%;
+}
+
+.game-title {
+  font-size: 3rem;
+  font-family: cursive;
+  color: #4c93e6;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.game-content {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70%;
+}
+
+.play-btn {
+  position: absolute;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border: none;
+  outline: none;
+  padding: 40px 40px;
+  bottom: 10%;
+  font-size: 2.5rem;
+  background: none;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  font-family: monospace;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  text-shadow: 4px 4px 8px #000000;
+  justify-content: center;
+  align-items: center;
+}
