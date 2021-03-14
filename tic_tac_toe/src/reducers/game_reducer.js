@@ -1,5 +1,4 @@
 import {
-  SET_XISNEXT,
   SET_STATUS,
   SET_SHOW_RESULT,
   SET_DISABLE,
@@ -18,7 +17,7 @@ const game_reducer = (state, action) => {
       return { ...state, loading: action.payload };
     }
     case GET_MOVES_ERROR:
-      return { ...state, moves_error: action.payload };
+      return { ...state, movesError: action.payload };
 
     default:
       return state;

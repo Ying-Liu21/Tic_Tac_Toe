@@ -13,7 +13,7 @@ const initialState = {
   isPlayGame: false,
   tokenLoading: false,
   email: "",
-  token_error: false,
+  tokenError: false,
   isVaildUser: false
 };
 

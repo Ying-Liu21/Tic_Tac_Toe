@@ -1,0 +1,13 @@
+.btn {
+  width: 100px;
+  padding: 7px 0;
+  font-size: 1.05rem;
+  font-weight: bold;
+  border-radius: 0.6rem;
+  background-color: #3c78e8;
+  border: none;
+  font-family: fantasy;
+  text-transform: capitalize;
+  border: 1px solid #3f6ec4;
+  color: #fff;
+}

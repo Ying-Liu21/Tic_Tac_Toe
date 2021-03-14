@@ -5,7 +5,7 @@ import {
   SET_EMAIL,
   GET_TOKEN_ERROR
 } from "../actions/user_actions";
-import { retrieveToken } from "../utils/helpers";
+
 const user_reducer = (state, action) => {
   switch (action.type) {
     case SET_IS_VALID_EMAIL:
@@ -20,7 +20,7 @@ const user_reducer = (state, action) => {
         isVaildUser: action.payload
       };
     case GET_TOKEN_ERROR:
-      return { ...state, token_error: action.payload };
+      return { ...state, tokenError: action.payload };
     case SET_EMAIL:
       return { ...state, email: action.payload };
     default:

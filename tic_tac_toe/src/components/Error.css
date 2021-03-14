@@ -6,3 +6,9 @@
   text-align: center;
   text-transform: capitalize;
 }
+
+.error-btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}

@@ -4,12 +4,12 @@ import "./Square.css";
 
 const Square = props => {
   const { disable } = useContext(GameContext);
-  console.log("disable", disable);
+  const { value, onClick, isClick } = props;
 
   return (
-    <div className="square">
-      <button className="square-btn" onClick={props.onClick} disabled={disable}>
-        {props.value}
+    <div className={`${isClick ? "square clicked" : "square"}`}>
+      <button className="square-btn" onClick={onClick} disabled={disable}>
+        <span className="square-text">{value}</span>
       </button>
     </div>
   );

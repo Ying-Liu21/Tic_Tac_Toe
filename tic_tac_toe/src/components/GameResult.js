@@ -2,26 +2,22 @@ import React, { useContext } from "react";
 import { GameContext } from "../context/game_context";
 import "./GameResult.css";
 
-const GameResult = () => {
-  const { status, showResult, setShowResult, setDisable } = useContext(
-    GameContext
-  );
+const GameResult = props => {
+  const { status, setShowResult } = useContext(GameContext);
 
   const handlePlay = () => {
     setShowResult(false);
   };
 
   return (
-    <div
-      className={`${
-        showResult ? "result-conatiner show-popover" : "result-conatiner"
-      }`}
-    >
+    <div className="result-conatiner">
       <header className="result-header">
         <h4 className="header-title">Game Over</h4>
       </header>
       <div className="result-content">
-        <h4 className="result-text">{status} won the game</h4>
+        <h4 className="result-text">
+          <span className="result">{status}</span> won the game
+        </h4>
       </div>
       <div className="result-footer">
         <input

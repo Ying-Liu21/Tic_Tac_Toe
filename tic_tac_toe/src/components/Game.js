@@ -1,71 +1,32 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
-
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import Loading from "./Loading";
 import Board from "./Board";
-import Error from "./Error";
-import { toMatrix, toList, getNextMove } from "../utils/helpers";
+import {
+  toMatrix,
+  toList,
+  getNextMove,
+  calculateWinner,
+  isBoardFull
+} from "../utils/helpers";
 import { GameContext } from "../context/game_context";
 import "./Game.css";
-import GameResult from "./GameResult";
 
 const Game = props => {
-  const [board, setBoard] = useState(Array(9).fill(""));
+  const [board, setBoard] = useState(Array(9).fill(null));
+  const [isClick, setIsClick] = useState(false);
 
   const {
-    status,
     setStatus,
-    loading,
-    movesError,
-    showResult,
     setShowResult,
+    loading,
     getLoading,
     getMovesError
   } = useContext(GameContext);
 
-  let history = useHistory();
-  const calculateWinner = squares => {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6]
-    ];
-
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-
-      if (
-        squares[a] &&
-        squares[a] === squares[b] &&
-        squares[a] === squares[c]
-      ) {
-        return squares[a];
-      }
-    }
-
-    return null;
-  };
-
-  let result;
-  const isBoardFull = squares => {
-    for (let i = 0; i < squares.length; i++) {
-      if (squares[i] === "") {
-        return false;
-      }
-    }
-
-    return true;
-  };
-
   let winner = calculateWinner(board);
-  // let status = "";
   const handleClick = i => {
+    setIsClick(true);
     const boards = board.slice();
     if (winner || boards[i]) {
       return;
@@ -81,6 +42,7 @@ const Game = props => {
     try {
       const boardMatrix = toMatrix(boards, 3);
       let token = sessionStorage.getItem("token");
+
       await axios
         .post(
           "https://zrp7d8y3q4.execute-api.us-east-2.amazonaws.com/dev/engine",
@@ -102,47 +64,29 @@ const Game = props => {
           getLoading(false);
           setBoard(boards);
         });
-      getMovesError(false);
     } catch (err) {
       getLoading(false);
-      getMovesError(false);
+      getMovesError(true);
     }
   };
 
   if (winner) {
-    console.log(winner);
+    setShowResult(true);
+    setStatus(winner);
+    setBoard(Array(9).fill(null));
   } else if (isBoardFull(board)) {
-    console.log("draw");
+    setShowResult(true);
+    setStatus("Draw");
+    setBoard(Array(9).fill(null));
   }
 
-  /*
-  useEffect(() => {
-    if (movesError) {
-      setTimeout(() => {
-        history.push("./");
-      }, 3000);
-    }
-
-    if (winner) {
-      setStatus(winner);
-    } else if (isBoardFull(board)) {
-      setStatus("Draw");
-    } else {
-      return;
-    }
-  }, [winner, isBoardFull]);
-*/
   if (loading) {
     return <Loading />;
   }
 
-  if (movesError) {
-    return <Error />;
-  }
-
   return (
     <div className="game">
-      <Board board={board} onClick={i => handleClick(i)} />
+      <Board board={board} onClick={i => handleClick(i)} isClick={isClick} />
     </div>
   );
 };

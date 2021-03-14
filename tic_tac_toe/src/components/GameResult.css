@@ -1,7 +1,7 @@
 .result-conatiner {
   width: 60%;
-  max-width: 420px;
-  height: 430px;
+  max-width: 450px;
+  height: 450px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
   color: #000;
@@ -9,17 +9,9 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -35%);
   transition: all 0.5s ease-in-out;
-  backdrop-filter: blur(20px);
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-}
-
-.show-popover {
-  visibility: visible;
-  opacity: 1;
+  z-index: 2;
 }
 
 .result-header {
@@ -58,6 +50,10 @@
   color: #3fa7c4;
 }
 
+.result {
+  font-size: 2.5rem;
+  color: #3434eb;
+}
 .result-footer {
   width: 100%;
   display: flex;

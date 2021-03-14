@@ -4,17 +4,35 @@
   background-color: rgba(255, 255, 255, 0.8);
   border: 3px double rgba(0, 0, 0, 0.8);
   box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  font-size: 1.5rem;
-  font-weight: 600;
+  padding: 45px;
+  display: inline-block;
 }
 
-.square-btn:hover::after {
+.clicked {
+  width: 100px;
+  height: 100px;
+}
+
+.square {
+  position: relative;
+  outline: 0;
+}
+
+.square:hover::after {
   content: "";
-  background-color: #ffa;
+  position: absolute;
+  background-color: red;
   left: 0;
   top: -5000px;
   height: 10000px;
   width: 100%;
   z-index: -1;
+}
+
+.square-text {
+  position: absolute;
+  text-align: center;
+  left: 40%;
+  top: 35%;
+  font-size: 1.75rem;
 }

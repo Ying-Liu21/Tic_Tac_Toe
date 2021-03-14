@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 
 import { game_reducer } from "../reducers/game_reducer";
 import {
@@ -12,7 +12,7 @@ import {
 
 const initialState = {
   xIsNext: true,
-  status: "",
+  status: null,
   showResult: false,
   disable: true,
   loading: false,
